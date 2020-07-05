@@ -212,3 +212,81 @@ dragging,
 and clicking on the other connection point.
 Clicking on a connection point that already has a connection selects that end of the connection;
 dropping that end on empty space breaks the connection.
+
+## Use Cases
+
+1.  *User opens web page containing a Jeff application.*
+    User sees a rectangular workspace with:
+
+    1.  A vertical column on the left side containing icons for blocksets.
+    1.  An empty area for building stacks.
+    1.  A trash bin in the lower right of the empty area for disposing of blocks.
+
+    There will usually be other items on the page,
+    such as an area for displaying output
+    and buttons for loading, saving, and running,
+    but they are not Jeff's responsibility.
+
+1.  *User adds the first block to the workspace.*
+    1.  User clicks on a blockset in the block palette.
+    1.  Palette displays the blocks in that blockset.
+    1.  User clicks and holds on a block from that blockset.
+    1.  Jeff creates a new block of that type.
+    1.  User moves the pointer into the construction area.
+    1.  The new block follows the pointer.
+    1.  User releases the pointer.
+    1.  The new block is dropped in its last location.
+
+1.  *User adds a second block to the workspace to create a stack.*
+    1.  User creates a new block (as above).
+        This block is *not* a top block or a nesting block.
+    1.  User moves the pointer near the bottom of the existing block
+        (which is *not* a bottom block or a nesting block).
+    1.  Jeff highlight the lower edge of the existing block
+        and the upper edge of the new block to show that they can be joined.
+    1.  User releases the pointer.
+    1.  Jeff clicks the two blocks together to create a stack.
+
+1.  *User moves a stack.*
+    1.  User clicks and holds the top block of a stack.
+    1.  Jeff highlights the whole stack.
+    1.  User moves the pointer.
+    1.  Jeff moves the entire stack to follow the pointer.
+    1.  User releases the pointer.
+    1.  Jeff drops the stack in the pointer's last location.
+
+1.  *User breaks a stack.*
+    1.  User clicks and holds any block in the stack except the top one.
+    1.  Jeff highlights that block and all the blocks below it.
+    1.  User moves the pointer.
+    1.  Jeff moves the portion of the stack
+        consisting of the selected block and the blocks below it.
+    1.  User releases the pointer.
+    1.  Jeff drops the new stack in the pointer's last location.
+    1.  Note: the user may also drag the stack close to an existing stack,
+        in which case the two stacks are joined when the moving stack is dropped.
+
+1.  *User inserts a block into a stack.*
+    1.  User creates a new block (as above) or selects an existing stack (as above).
+        The block or stack is connectable on its top and bottom edges.
+    1.  User moves the pointer over the join between two blocks in an existing stack.
+    1.  Jeff highlights the join to show where the block or stack being moved can be inserted.
+    1.  User releases the pointer.
+    1.  Jeff inserts the block or stack in the indicated location.
+
+1.  *User deletes a stack.*
+    1.  User clicks and holds a block (either on its own or in a stack).
+    1.  User moves the pointer to the trash can.
+    1.  Jeff moves the block or stack to the trash and removes it from the workspace.
+
+1.  *User nests a block.*
+    1.  User creates or selects a nesting block.
+    1.  User moves the pointer to an empty hole in an existing block.
+    1.  User releases the pointer.
+    1.  Jeff inserts the nesting block in the hole and resizes the containing block as needed.
+
+1.  *User edits a block.*
+    1.  User selects a widget in an existing block.
+    1.  If the widget is a text entry widget, Jeff sets the text edit focus.
+    1.  If the widget is a pulldown, Jeff shows the options.
+    1.  If the widget is a checkbox, Jeff toggles its state.
